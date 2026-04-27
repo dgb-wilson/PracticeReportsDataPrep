@@ -12,7 +12,7 @@ fSimulatePatientEncounters <- function(df){
   df$ENCOUNTERS_IN_STUDYPERIOD <- 1 + # must have at least one encounter
                                   rnegbin(nrow(df),
                                   mu = df$patient_encounter_rate,
-                                  theta = 2.5 # dispersion parameter
+                                  theta = 2.0 # dispersion parameter
   )
   
   df <- df |> dplyr::select(-patient_encounter_rate)
