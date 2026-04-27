@@ -50,3 +50,4 @@ rsconnect/
 
 # Ignore Data directory
 Data/
+.positai
