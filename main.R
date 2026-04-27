@@ -7,6 +7,7 @@ library(DBI)
 library(readr)
 library(stringr)
 library(MASS)
+library(duckdb)
 
 # simulation parameters for generating synthetic practice data
 
