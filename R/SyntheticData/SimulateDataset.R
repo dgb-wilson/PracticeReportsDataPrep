@@ -7,7 +7,12 @@ con <- dbConnect(duckdb::duckdb(),
                  read_only = FALSE)
 
 # load functions
-source("R/SyntheticData/SimulateFunctions/fSimulatePracticeList.R")
+scripts <- list.files(
+  path = "R/SyntheticData/SimulateFunctions",
+  pattern = "\\.R$",
+  full.names = TRUE
+)
+lapply(scripts, function(f) source(f, echo = FALSE, verbose = FALSE))
 
 # seed for reproducibility
 set.seed(123)
