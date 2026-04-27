@@ -13,3 +13,17 @@ connectdb <- function(){
   
   return(dbcon)
 }
+
+fCreateAgeGroups <- function(cuts){
+  lowgroups <- c(0, cuts)
+  highgroups <- c(cuts, 2500)
+  text <- paste0(lowgroups, "-", highgroups - 1)
+  text[length(highgroups)] <- paste0(highgroups[length(highgroups)-1], "+")
+  
+  out <- data.frame(agecat = 0:(length(highgroups) - 1),
+                    age_low = lowgroups,
+                    age_high = highgroups,
+                    agecat_text = text)
+  
+  return(out)
+}
