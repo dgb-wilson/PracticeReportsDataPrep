@@ -25,6 +25,10 @@ dbWriteTable(con,
              practicelist,
              overwrite = TRUE)
 
+# add patient cohort table
+patientcohort <- fSimulatePatientCohort(min_patients_per_prac = sim_params$min_patients_per_prac,
+                                        max_patients_per_prac = sim_params$max_patients_per_prac,
+                                        nb_practices = sim_params$nb_practices)
 
 disconnectdb(con)
 
