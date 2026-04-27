@@ -11,8 +11,8 @@ library(duckdb)
 
 # simulation parameters for generating synthetic practice data
 
-nb_phns=10
-nb_practices_per_phn=25
+nb_phns=5
+nb_practices_per_phn=20
 
 sim_params <- list(
   generate_data = TRUE,
@@ -20,7 +20,7 @@ sim_params <- list(
   nb_practices_per_phn=nb_practices_per_phn,
   nb_practices = nb_phns*nb_practices_per_phn,
   min_patients_per_prac = 200,
-  max_patients_per_prac = 2000,
+  max_patients_per_prac = 1500,
   max_age_of_patients = 100)
 
 
