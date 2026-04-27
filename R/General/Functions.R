@@ -27,3 +27,11 @@ fCreateAgeGroups <- function(cuts){
   
   return(out)
 }
+
+# A function for executing several SQL scripts in sequence
+fRunScripts <- function(db=con, scripts, location="SQL"){
+  
+  lapply(scripts, function(script){ 
+    DBI::dbExecute(db, read_file(file.path(location, script)))
+  })
+}
