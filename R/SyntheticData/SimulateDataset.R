@@ -1,7 +1,6 @@
 # generate a synthetic dataset to use in the demo workflow
 
 # create a database using duckdb
-
 con <- dbConnect(duckdb::duckdb(), 
                  dbdir = "Data/PracticeReportData.duckdb", 
                  read_only = FALSE)
@@ -28,7 +27,14 @@ dbWriteTable(con,
 # add patient cohort table
 patientcohort <- fSimulatePatientCohort(min_patients_per_prac = sim_params$min_patients_per_prac,
                                         max_patients_per_prac = sim_params$max_patients_per_prac,
-                                        nb_practices = sim_params$nb_practices)
+                                        nb_practices = sim_params$nb_practices,
+                                        nb_phns = sim_params$nb_phns)
+
+dbWriteTable(con, 
+             "GPEHR_PATIENT_SUMMARY", 
+             patientcohort,
+             overwrite = TRUE)
+
 
 disconnectdb(con)
 

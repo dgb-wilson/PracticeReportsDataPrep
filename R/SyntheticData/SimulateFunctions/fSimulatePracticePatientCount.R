@@ -17,6 +17,11 @@ df <- data.frame(
                replace = FALSE)
 )
 
+practicelist <- dbGetQuery(con,"select PRACTICE_ID, AREA_ID from GPEHR_PRACTICE")
+
+df <- df |> 
+      left_join(practicelist, by = "PRACTICE_ID")
+
 return(df)
 
 }
