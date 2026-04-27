@@ -10,3 +10,5 @@ dbWriteTable(con,
 
 # append age_category to GPEHR_PATIENT_SUMMARY table
 dbExecute(con,read_file("SQL/DataPrep/Append_Age_Category.sql"))
+
+disconnectdb(con)
