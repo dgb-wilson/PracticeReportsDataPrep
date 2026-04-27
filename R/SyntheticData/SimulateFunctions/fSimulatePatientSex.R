@@ -1,7 +1,7 @@
 fSimulatePatientSex <- function(df,
                                 nb_practices){
 
-sex_practice_effect <- rnorm(nb_practices, mean = 0, sd = 0.4)
+sex_practice_effect <- rnorm(nb_practices, mean = 0, sd = 0.45)
 
 logit <- function(p) log(p / (1 - p))
 inv_logit <- function(x) exp(x) / (1 + exp(x))
